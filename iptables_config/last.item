@@ -1,0 +1,56 @@
+May 6th
+Linkage from install.sh to cent_os.sh is complete, the execution of the whole script for centos
+should be tested. 
+similar files to cent_os.sh should be written for Debian and Ubuntu, then linked from the final
+"while" loop in install.sh.
+
+May 5th
+the centos.sh scrips seems to be working fine on cent os, rules are saved correctly, too.
+Now, the execution of that file from install.sh or any of the following files, and the return
+to back to those files (if needed), needs to be completed.  
+
+
+May 3rd
+Ubuntu VM needs to be installed, just to check if same errors occur as on AWS VM. 
+On centos "iptables-services" package needs to be installed, in order to have
+full iptables funcionality.
+iptables-restore command should be run, then iptables-save > /etc/sysconfig/iptables, in order to make
+sure the default settings (which are good, enable ssh inbound, etc), are kept. 
+
+Although it is possible to just work from using the return codes of disable_other_firewall, it is probably 
+cleaner to utilize os_finder and possibly along with disable_other_firewall.sh - combine the two into
+a path of treating each OS and firewall combo: Disabling, installing/adding/configuring iptables. 
+
+
+May 2nd
+the disable_other_firewall script works fine on Ubuntu, disables ufw. There is some output
+from insserv which cannot be surpressed, seems like it's going to be inavoidable. 
+
+firewalld is ineed active on a local centos install. 
+
+
+May 2nd
+All feasible states of systemctl UFW should be found out. Specifically on Ubuntu system, where
+ufw is certainly installed out of the box. 
+currently, we have:
+if installed and running, retruns 0
+if installed but stopped, returns 3
+if not present (not installed, nor running), returns 4
+
+So, we need: installed and disabled at boot status.
+
+May 2nd
+While the os_finder script can find out correctly Debian, Cent, or Ubuntu, the main goal of finding
+the os is to determine if ufw or firewalld must be disabled on boot. 
+
+This may be dirreclty possible by just using systemctl status. The return codes for firewalld or ufw 
+are in a file in this directory. 
+The return codes seem to hold true across all three distors, so they are portable. 
+
+The AWS version of centos does not have firewalld installed, which is odd, on all other centos seen,
+firewalld was the default firewall. An ISO has been downladed, it should be set up as VM and chcked
+whether firewalld is installed by default. 
+
+May 1st
+It was confirmed that os_finder.sh can identify the correct OS vendor for Centos 7 and Debian 9. 
+Need to start up the Ubuntu 16.4 VM on amazon, and check it can retrieve its OS vendor as well. 

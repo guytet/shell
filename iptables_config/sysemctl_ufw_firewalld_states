@@ -1,0 +1,3 @@
+if installed and running, retruns 0
+if installed but stopped, returns 3
+if not present (not installed, nor running), returns 4

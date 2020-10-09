@@ -6,7 +6,7 @@ Really, this is not productive. firewalld is awesome, (and ufw is not).
 To install run ./install.sh
 
 Will disable ufw and firewalld on systems that ship with it, and re-enable iptables,
-while opening only ssh(22) and icmp echo (ping) new traffic inbound. 
+while opening only ssh(22) and icmp echo traffic inbound. 
 
 Configures ports:
 Enabled: 22(ssh incoming), icmp echo (ping).

@@ -18,7 +18,7 @@
 
 #Are we root ?  
 if [ ! $(id -u) = 0 ]; then
-	echo -e "you are not root, run this script as root or sudo\n"
+	echo -e "you are not root, have some coffee before doing this\n"
 	exit
 fi
 
